@@ -37,28 +37,10 @@ fn main() {
 
     // parsed dataset
     let dataset = day_two::parser(read_lines(path_to_file));
-
-    // Initialise a submarine
-    let mut submarine = day_two::Submarine::new();
-
-    for row in dataset {
-
-        let action_magnitude: Vec<&str> = row.split(" ").collect();
-
-        let action = action_magnitude[0];
-        let magnitude: i64 = action_magnitude[1].parse::<i64>().unwrap();
-
-        if action == "forward" {
-            submarine = submarine.move_forward(magnitude);
-        } else if action == "up" {
-            submarine = submarine.move_up(magnitude);
-        } else if action == "down" {
-            submarine = submarine.move_down(magnitude);
-        }
-        println!("After every action: {:?}", submarine);
-    }
+    // runs thee solution for day2.1
+    let submarine_units = day_two::day1_one(&dataset);
     
-    println!("Day two dataset: {:?}", submarine.travelled_units());
+    println!("DAY 2.1 : Distance travelled by submarine: {}", submarine_units);
 
 
 
