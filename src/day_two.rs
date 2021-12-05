@@ -77,7 +77,7 @@ pub fn day2_two(dataset: &Vec<String>) -> i64 {
         } else if action == "down" {
             submarine = submarine.move_down(magnitude);
         }
-        println!("After every action: {:?}", submarine);
+        // println!("After every action: {:?}", submarine);
     }
 
     submarine.travelled_units()
