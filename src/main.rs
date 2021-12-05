@@ -18,7 +18,6 @@ where P: AsRef<Path>, {
 
 fn main() {
     println!("This is Advent Of Code...");
-    println!("Welcome to Day 1");
 
     // Day one solution
     let path_to_file = "./data/day1.csv";
@@ -33,6 +32,7 @@ fn main() {
     println!("DAY 1.1 : Count of increases: {}", day_one_1_solution);
     println!("DAY 1.2 : Count of sum increases: {}", day_one_2_solution);
 
+    // Day two solution
     let path_to_file = "./data/day2.txt";
 
     // parsed dataset
