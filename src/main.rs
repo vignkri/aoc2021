@@ -38,9 +38,12 @@ fn main() {
     // parsed dataset
     let dataset = day_two::parser(read_lines(path_to_file));
     // runs thee solution for day2.1
-    let submarine_units = day_two::day1_one(&dataset);
+    let submarine_units = day_two::day2_one(&dataset);
+    // runs the solution for day2.2
+    let submarine_aim_depth = day_two::day2_two(&dataset);
     
     println!("DAY 2.1 : Distance travelled by submarine: {}", submarine_units);
+    println!("DAY 2.2 : Distance travelled by submarine: {}", submarine_aim_depth);
 
 
 
