@@ -2,11 +2,10 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::{Path, self};
 
-use argparse::action;
-
 
 pub mod day_one;
 pub mod day_two;
+pub mod day_three;
 
 // The output is wrapped in a Result to allow matching on errors
 // Returns an Iterator to the Reader of the lines of the file.
@@ -45,6 +44,14 @@ fn main() {
     println!("DAY 2.1 : Distance travelled by submarine: {}", submarine_units);
     println!("DAY 2.2 : Distance travelled by submarine: {}", submarine_aim_depth);
 
+    // Day three solution
+    let path_to_file = "./data/day3.txt";
+
+    // parsed dataset
+    let dataset = day_three::parser(read_lines(path_to_file));
+    let power_consumption = day_three::day3_one(&dataset);
+
+    println!("DAY 3.1 : Power consumed: {}", power_consumption);
 
 
 }
