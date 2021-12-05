@@ -47,6 +47,15 @@ pub struct Submarine {
 }
 
 
+pub trait Controller {
+    fn move_forward(&self, units: i64) -> Submarine;
+    fn move_down(&self, units: i64) -> Submarine;
+    fn move_up(&self, units: i64) -> Submarine;
+}
+
+
+
+// Implements standard functions for a submarine
 impl Submarine {
 
     // Build a new submarine
@@ -54,8 +63,19 @@ impl Submarine {
         Submarine { x: 0, y: 0, }
     }
 
+    // Compute units travelled of the submarine
+    pub fn travelled_units(&self) -> i64 {
+
+        self.x * self.y
+    }
+
+}
+
+
+impl Controller for Submarine {
+
     // Move the submarine forward
-    pub fn move_forward(&self, units: i64) -> Submarine {
+    fn move_forward(&self, units: i64) -> Submarine {
 
         let movement = self.x + units;
 
@@ -63,7 +83,7 @@ impl Submarine {
     }
 
     // Move the submarine deeper
-    pub fn move_down(&self, units: i64) -> Submarine {
+    fn move_down(&self, units: i64) -> Submarine {
 
         let movement= self.y + units;
 
@@ -71,17 +91,10 @@ impl Submarine {
     }
 
     // Move the submarine upward
-    pub fn move_up(&self, units: i64) -> Submarine {
+    fn move_up(&self, units: i64) -> Submarine {
 
         let movement= self.y - units;
 
         Submarine { x: self.x.to_owned(), y: movement }
     }
-
-    // Compute units travelled
-    pub fn travelled_units(&self) -> i64 {
-
-        self.x * self.y
-    }
-
 }
